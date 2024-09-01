@@ -13,7 +13,7 @@ public class DemoController {
    @Autowired
    public void setCoach(Coach theCoach)
    {
-       myCoach=theCoach;
+       myCoach=theCoach;  
    }
     @GetMapping("/workout")
     public String workout()
