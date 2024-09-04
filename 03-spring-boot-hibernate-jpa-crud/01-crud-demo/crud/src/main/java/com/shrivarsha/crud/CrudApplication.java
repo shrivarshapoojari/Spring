@@ -30,7 +30,7 @@ public class CrudApplication {
 //			updateStudent(studentDAO);
 
 //			deleteStudent(studentDAO);
-			deleteALlStudents(studentDAO);
+			deleteALlStudents(studentDAO)
 		};
 
 
@@ -38,8 +38,8 @@ public class CrudApplication {
 private void deleteALlStudents(StudentDAO studentDAO)
 {
 	System.out.println("DELETING DB");
-	studentDAO.deleteAll();
-	System.out.println("DELETED ALL");
+	int num=studentDAO.deleteAll();
+	System.out.println("DELETED ROW COUNT " + num);
 }
 
 private  void deleteStudent( StudentDAO studentDAO)
