@@ -21,14 +21,33 @@ public class CrudApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO)
 	{
 		return runner ->{
-//			 createStudent(studentDAO);
+			 createStudent(studentDAO);
 //			 readStudent(studentDAO);
 
 //			queryForStudents(studentDAO);
-			queryLastName(studentDAO);
-		};
-	}
+//			queryLastName(studentDAO);
 
+//			updateStudent(studentDAO);
+
+//			deleteStudent(studentDAO);
+			deleteALlStudents(studentDAO);
+		};
+
+
+	}
+private void deleteALlStudents(StudentDAO studentDAO)
+{
+	System.out.println("DELETING DB");
+	studentDAO.deleteAll();
+	System.out.println("DELETED ALL");
+}
+
+private  void deleteStudent( StudentDAO studentDAO)
+{
+	int id=1;
+	studentDAO.delete(id);
+	System.out.println("Deleted ");
+}
 	private void queryLastName(StudentDAO studentDAO) {
 
 		List<Student> students=studentDAO.findByLastName("varsha");
@@ -57,12 +76,31 @@ public class CrudApplication {
 
 		System.out.println("Retreiving student with id " + id);
 
-		Student mystudent=studentDAO.findByID(id);
+		Student mystudent=studentDAO.findById(id);
 
 		System.out.println("Found student "+ mystudent);
 
 
 
+
+	}
+	private  void updateStudent(StudentDAO studentDAO)
+	{
+		int id=1;
+		System.out.println("Retreiving student with id " + id);
+
+		Student mystudent=studentDAO.findById(id);
+
+		System.out.println("Found student "+ mystudent);
+
+		System.out.println("Updating student");
+		mystudent.setFirstName("Ubjeri");
+		studentDAO.update(mystudent);
+		System.out.println("Retreiving student with id " + id);
+
+		Student mystudent1=studentDAO.findById(id);
+
+		System.out.println("Found student "+ mystudent1);
 
 	}
 
@@ -77,6 +115,7 @@ public class CrudApplication {
 		System.out.println("Saved");
 		System.out.println("Saved Student ,Generated id"+ tempStudent.getId());
 	}
+
 
 
 }
