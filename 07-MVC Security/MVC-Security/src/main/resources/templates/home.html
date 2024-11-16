@@ -20,16 +20,18 @@ Roles: <span sec:authentication="principal.authorities"></span>
 <hr>
 
 <hr>
+<div sec:authorize="hasRole('MANAGER')">
    <p>
    <a th:href="@{/leaders}">Leadership Meeting</a>
        Only for Managers
    </p>
-
+</div>
+<div sec:authorize="hasRole('ADMIN')">
 <p>
     <a th:href="@{/systems}">Critical Sys Logs</a>
     Only for Admin
 </p>
-
+</div>
 <hr><
 </p>
 
