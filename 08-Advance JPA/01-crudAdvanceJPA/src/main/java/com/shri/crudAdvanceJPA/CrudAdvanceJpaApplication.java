@@ -22,7 +22,25 @@ public class CrudAdvanceJpaApplication {
 		return runner->
 		{
 		   createInstructor(appDAO);
+//			findInstructor(appDAO);
+			deleteInstructor(appDAO);
 		};
+	}
+
+	private  void findInstructor(AppDAO appDAO)
+	{
+		int id=1;
+		System.out.println("Finding");
+
+		Instructor temp=appDAO.findInstructorById(id);
+		System.out.println("Instructor"+temp);
+	}
+	private  void deleteInstructor(AppDAO appDAO)
+	{
+		int id=2;
+		System.out.println("Deleting");
+		appDAO.deleteInstructorById(id);
+		System.out.println("-----------------------------------Deleted-----------------------------------------------------");
 	}
 
 	private void createInstructor(AppDAO appDAO) {
